@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>17153/18677 Match Scouting</title>
+        <link rel="stylesheet" href="Main.css">
+        <link rel="shortcut icon" href="/favicon.png" type="image/png">
+    </head>
+    <body class = "bod">
+
+        <div class="tab">
+            <button class="tabLinks" onclick="openTab(Event, 'PreGame')">Pre-Game</button>
+            <button class="tabLinks" onclick="openTab(Event, 'Auto')">Auto</button>
+            <button class="tabLinks" onclick="openTab(Event, 'Tele-op')">Tele-op</button>
+            <button class="tabLinks" onclick="openTab(Event, 'Endgame')">Endgame</button>
+            <a href = "http://frc1410.org"><img src = "favicon.png" alt = "Krak"></a>
+        </div>
+
+        <div id="PreGame" class="tabContent">
+            <input type="text" id="Scout Name" class="input" placeholder="Scout's First Name">
+            <select id="Team Number" class="dropdown">
+<!--                put team numbers from each event here-->
+                <option value="Default" selected hidden>Team Number</option>
+
+            </select>
+            <select id="Alliance Station" class="dropdown">
+                <option value="Default" selected hidden>Alliance Station</option>
+                <optgroup label="Red Alliance">
+                    <option value="R1">R1</option>
+                    <option value="R2">R2</option>
+                </optgroup>
+                <optgroup label="Blue Alliance">
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div id="Auto" class="tabContent">
+            <button type="button" class="boolean" id="Delivered Duck/Team Scoring Element">Delivered Duck/Team Scoring Element</button>
+            <button type="button" class="boolean" id="Team Scoring Element on Field">Team Scoring Element on Field</button>
+
+            <select id="Parking Auto" class="dropdown">
+                <option value="Default" selected hidden>Where did they park?</option>
+                <option value="Partial Alliance Storage Unit">Partial Alliance Storage Unit</option>
+                <option value="Complete Alliance Storage Unit">Complete Alliance Storage Unit</option>
+                <option value="Partial Warehouse">Partial Warehouse</option>
+                <option value="Complete Warehouse">Complete Warehouse</option>
+            </select>
+            <select id="Cargo Delivery Auto" class="dropdown">
+                <option value="Default" selected hidden>Where did they deliver cargo?</option>
+                <option value="Alliance Storage">Alliance Storage</option>
+                <option value="Alliance in Hub">Alliance in Hub</option>
+            </select>
+        <button type="button" class="boolean" id="Cargo same color as Duck">Cargo Same color as duck></button>
+        </div>
+        <div id="Tele-op" class="tabContent">
+            <button type="button" class="main" id="Freight in storage unit" onclick="touchDetect(Event, TFSU)">Freight in Storage Unit</button>
+            <button type="button" class="main-minus" id="Freight in storage unit -">-</button>
+            <button type="button" class="main" id="Freight on lvl 1 of shipping hub" onclick="touchDetect(Event, TF1SH)">Freight on Lvl 1 of Shipping Hub</button>
+            <button type="button" class="main-minus" id="Freight on lvl 1 of shipping hub -">-</button>
+            <button type="button" class="main" id="Freight on lvl 2 of shipping hub" onclick="touchDetect(Event, TF2SH)">Freight on Lvl 2 of Shipping Hub</button>
+            <button type="button" class="main-minus" id="Freight on lvl 2 of shipping hub -">-</button>
+            <button type="button" class="main" id="Freight on lvl 3 of shipping hub" onclick="touchDetect(Event, TF3SH)">Freight on Lvl 3 of Shipping Hub</button>
+            <button type="button" class="main-minus" id="Freight on lvl 3 of shipping hub -">-</button>
+            <button type="button" class="main" id="Freight on shared shipping hub" onclick="touchDetect(Event, TFSSH)">Freight on Shared Shipping Hub</button>
+            <button type="button" class="main-minus" id="Freight on shared shipping hub -">-</button>
+        </div>
+        <div id="Endgame" class="tabContent">
+            <button type="button" class="boolean" id="Shipping Hub Balanced">Is the shipping hub balanced?</button>
+            <button type="button" class="main" id="DD" onclick="touchDetect(Event, TDD)">Ducks Delivered</button>
+            <select id="Parking Endgame" class="dropdown">
+                <option value="Default" selected hidden>Where are they parked?</option>
+                <option value="Warehouse">Warehouse</option>
+                <option value="Complete Warehouse">Complete Warehouse</option>
+                <option value="Neither">Neither</option>
+            </select>
+            <button type="button" class="boolean" id="Cap Shipping Team Element">Did they cap shipping team element?</button>
+
+<!--            https://stackoverflow.com/questions/6139225/how-to-detect-a-long-touch-pressure-with-javascript-for-android-and-iphone-->
+
+            <button type="button" class="main" id="EWR" onclick="touchDetect(Event, EWR)">Wobble Rings</button>
+            <button type="button" class="main-minus" id="EWRM">-</button>
+            <button type="button" class="boolean" id="EWSL">Endgame Wobble Start Line</button>
+            <button type="button" class="boolean" id="EWDZ">Auto Wobble Correct Zone</button>
+<!--            <input type="text" id="EWSL" class="input" placeholder="Endgame Wobble Start Line">-->
+<!--            <input type="text" id="EWDZ" class="input" placeholder="Endgame Wobble Drop Zone">-->
+<!--            <input type="text" id="EWR" class="input" placeholder="Endgame Wobble Rings #">-->
+
+<!--            <button type="button" class="BAD" id="PMA3">Major Penalty</button>-->
+<!--            <button type="button" class="BAD" id="PMI3">Minor Penalty</button>-->
+
+            <button type="button" class="data" id="send">Send Scouting Data</button>
+            <div id = "modal" class = "modal">
+                <div class="modal-content">
+                    <span class="close" id="close">&times;</span>
+                    <h1>BIG DATA Sent!</h1>
+                </div>
+            </div>
+
+            <button type="button" class="Qr" id="qr">Get QR Code</button>
+            <div id = "modalQR" class = "modal">
+                <div class="modal-content">
+                    <span class="close" id="closeQR">&times;</span>
+                    <h1>QR Code:</h1>
+                    <canvas id="qr-code"></canvas>
+                </div>
+            </div>
+        </div>
+        <p class = "credits">Unofficial © FRC Team 1410 Patent Pending <sup>Pending</sup> Trademark&emsp;&emsp;&emsp;&emsp;Created by Rowan Eklund & Santiago Fiz with help from Consultant Cosimo Plumb & Data Daddy Fyodor Ionikh&emsp;&emsp;&emsp;&emsp;Do not copy or distribute unless you want to.</p>
+<!--        <img src="favicon.png" alt="Kraken"> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+        <script src="Main.js"></script>
+    </body>
+</html>

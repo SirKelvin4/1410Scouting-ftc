@@ -1,0 +1,232 @@
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.container {
+    grid-template-columns: 2fr [col1] 1fr [col2] 2fr [col3] 1fr [col4];
+    grid-template-rows: 1fr [row1] 1fr [row2] 1fr [row3] 1fr [row4];
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    place-content: stretch stretch;
+    grid-template-areas:
+        "button1 button2 button3"
+        "button4 button5 button6";
+}
+
+
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+/* The Close Button */
+.close {
+    grid-column: 2 / 3;
+    grid-row: 4;
+    color: #aaaaaa;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.bod {
+    margin: 0;
+    padding: 0;
+    background-color: #0C0503
+}
+
+.main {
+    background-color: #4CAF50;
+    grid-column: col1;
+    grid-row: auto;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.main:hover {background-color: limegreen;}
+
+.main:active {background-color: #3e8e41}
+
+.main-right {
+    background-color: #4CAF50;
+    grid-column: col3;
+    grid-row: auto;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.main-right:hover {background-color: limegreen;}
+
+.main-right:active{background-color: #3e8e41}
+.main-minus {
+    background-color: #4CAF50;
+    grid-column: col2;
+    grid-row: auto;
+    border:none;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.main-minus:hover {
+    background-color: limegreen;
+}
+
+.main-minus:active {background-color: #3e8e41}
+
+.main-minus-right {
+    background-color: #4CAF50;
+    grid-column: col4;
+    grid-row: auto;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.main-minus-right:hover {
+    background-color: limegreen;
+}
+
+.main-minus-right:active {background-color: #3e8e41}
+
+
+.data {
+    margin-top: 5px;
+    background-color: #2b64ba;
+    grid-column: col1 col2 col3 col4;
+    grid-row: auto;
+    border: none;
+    color: white;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.data:hover {background-color: cornflowerblue}
+
+.data:active {background-color: #173965}
+
+.Qr {
+    margin-top: 5px;
+    background-color: steelblue;
+    grid-column: col1 col2 col3 col4;
+    grid-row: auto;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.Qr:hover {
+    background-color: dodgerblue;
+}
+
+.Qr:active {background-color: royalblue}
+
+/*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal*/
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.tab img {
+    margin-top: 3px;
+    width: 40px;
+    height: 40px;
+    float: right;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: grey;
+}
+
+/* Style the tab content */
+.tabContent {
+    display: none;
+  /*  padding: 6px 12px; */
+    border: none;
+    justify-content: space-evenly;
+
+}
+
+.input {
+    margin-bottom: 2px;
+    margin-top: 2px;
+    height: 115px;
+    width: 49%;
+    font-size: 16px;
+    background-color: white;
+}
+
+.credits {
+    color: darkgrey;
+    font-size: 17px;
+}
+
+.boolean {
+    background-color: darkgrey;
+    grid-column: col1 col2 col3 col4;
+    grid-row: auto;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.boolean:hover {background-color: #dddddd;}
